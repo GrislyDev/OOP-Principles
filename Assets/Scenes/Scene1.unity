@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 457332626}
+  - component: {fileID: 457332627}
   m_Layer: 0
   m_Name: AttackRange
   m_TagString: Untagged
@@ -153,6 +154,19 @@ Transform:
   m_Father: {fileID: 1114450291}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &457332627
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457332625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &603866334
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 603866335}
+  - component: {fileID: 603866336}
   m_Layer: 0
   m_Name: AttackRange
   m_TagString: Untagged
@@ -183,6 +198,19 @@ Transform:
   m_Father: {fileID: 2082512173}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &603866336
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603866334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 894921358}
+  - component: {fileID: 894921359}
   m_Layer: 0
   m_Name: AttackRange
   m_TagString: Untagged
@@ -402,6 +431,19 @@ Transform:
   m_Father: {fileID: 1262863725}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &894921359
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894921357}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
