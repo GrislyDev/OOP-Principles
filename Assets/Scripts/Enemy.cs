@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,25 +10,10 @@ public class Enemy : MonoBehaviour
 	private float damage;
 	private float rangeOfAttack;
 	private int health;
+	private float time;
 
 	[SerializeField] protected GameObject player;
-	[SerializeField] protected GameObject AttackRangeCollider;
-	[SerializeField]
-	protected float AttackSpeed
-	{
-		set
-		{
-			if (value <= 1)
-			{
-				Debug.LogError("Attack speed value must be greater than 1");
-			}
-			else
-			{
-				attackSpeed = value;
-			}
-		}
-	}
-	[SerializeField]
+
 	protected float AttackDelay
 	{
 		set 
@@ -41,8 +27,8 @@ public class Enemy : MonoBehaviour
 				attackDelay = value;
 			}
 		}
+		get { return attackDelay; }
 	}
-	[SerializeField]
 	protected float Damage
 	{
 		set 
@@ -58,7 +44,6 @@ public class Enemy : MonoBehaviour
 		}
 		get { return damage; }
 	}
-	[SerializeField]
 	protected float RangeOfAttack
 	{
 		set 
@@ -73,7 +58,6 @@ public class Enemy : MonoBehaviour
 			}
 		}
 	}
-	[SerializeField]
 	protected int Health
 	{
 		set
@@ -90,13 +74,40 @@ public class Enemy : MonoBehaviour
 		get { return health; }
 	}
 
-	public void CheckAttackZone()
+	private void Start()
 	{
-		// Checks the presence of a player in the attack zone
+		GetComponent<SphereCollider>().radius = rangeOfAttack;
 	}
 
-	public virtual void Attack()
+	protected virtual void Attack() { }
+
+	protected bool AttackTimer()
 	{
-		// Attacks a player
+		if (time >= AttackDelay)
+		{
+			time = 0;
+			return true;
+		}
+		else
+		{
+			time += 0.02f;
+			return false;
+		}
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Player"))
+		{
+			player = other.gameObject;
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.CompareTag("Player"))
+		{
+			player = null;
+		}
 	}
 }
