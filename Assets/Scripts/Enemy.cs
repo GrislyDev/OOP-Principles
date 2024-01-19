@@ -11,8 +11,10 @@ public class Enemy : MonoBehaviour
 	private float rangeOfAttack;
 	private int health;
 	private float time;
+	
 
 	[SerializeField] protected GameObject player;
+	protected Rigidbody enemyRb;
 
 	protected float AttackDelay
 	{
