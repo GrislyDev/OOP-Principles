@@ -2,28 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : Projectile
 {
-	private Rigidbody bulletRb;
-	private GameObject player;
-
-	private void Start()
-	{
-		bulletRb = GetComponent<Rigidbody>();
-		player = GameObject.FindWithTag("Player");
-		Destroy(gameObject, 2f);
-	}
-
-	private void FixedUpdate()
+	protected override void ProjectileMovement()
 	{
 		bulletRb.AddRelativeForce(Vector3.forward, ForceMode.Impulse);
 	}
-
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.gameObject.CompareTag("Player"))
-		{
-			Destroy(gameObject);
-		}
-	}
+	
 }
