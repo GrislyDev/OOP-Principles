@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
-	private float attackSpeed;
 	private float attackDelay;
 	private float damage;
 	private float rangeOfAttack;
@@ -20,9 +16,9 @@ public class Enemy : MonoBehaviour
 	{
 		set 
 		{
-			if (value <= 1)
+			if (value <= 0)
 			{
-				Debug.LogError("Attack delay value must be greater than 1");
+				Debug.LogError("Attack delay value must be greater than 0");
 			}
 			else
 			{
@@ -81,7 +77,15 @@ public class Enemy : MonoBehaviour
 		GetComponent<SphereCollider>().radius = rangeOfAttack;
 	}
 
-	protected virtual void Attack() { }
+	private void FixedUpdate()
+	{
+		if (player != null && AttackTimer())
+		{
+			Attack();
+		}
+	}
+
+	protected abstract void Attack();
 
 	protected bool AttackTimer()
 	{
