@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,12 +8,10 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput = 0;
     private float verticalInput = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
     }
-
 
 	private void FixedUpdate()
 	{
