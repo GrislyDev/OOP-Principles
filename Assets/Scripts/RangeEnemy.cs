@@ -1,25 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class RangeEnemy : Enemy
 {
 	[SerializeField] private GameObject bullet;
+	private float attackDelay = 2f;
+	private float rangeOfAttack = 6f;
 
 	private void Awake()
 	{
-		AttackDelay = 2f;
-		RangeOfAttack = 6f;
+		AttackDelay = attackDelay;
+		RangeOfAttack = rangeOfAttack;
 	}
-	private void FixedUpdate()
-	{
-		if (player != null && AttackTimer())
-		{
-			Attack();
-		}
-	}
-
 
 	protected override void Attack()
 	{

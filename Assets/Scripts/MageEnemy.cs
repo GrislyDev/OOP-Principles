@@ -1,24 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MageEnemy : Enemy
+sealed class MageEnemy : Enemy
 {
 	[SerializeField] private GameObject magicSphere;
+	private float rangeOfAttack = 4f;
+	private float attackDelay = 4f;
 
-	// Start is called before the first frame update
 	void Awake()
     {
-        RangeOfAttack = 4f;
-        AttackDelay = 4f;
+        RangeOfAttack = rangeOfAttack;
+        AttackDelay = attackDelay;
     }
-	private void FixedUpdate()
-	{
-		if (player != null && AttackTimer())
-		{
-			Attack();
-		}
-	}
 
 	protected override void Attack()
 	{
